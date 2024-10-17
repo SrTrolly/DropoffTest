@@ -26,11 +26,13 @@ export default class AutoServicioPageComponent {
   public comprobante = signal<autoServiceComprobante | null>(null)
   public comprobantes = signal<autoServiceComprobante[]>([]);
 
+  //intente usar signal para esta variable pero se rompia por alguna razon
   public visible: boolean = false;
   public isValid = signal<boolean>(false);
 
   public onShowDialog(event: autoServiceForm): void {
 
+    //Vuelvo a verificar si el calculo es correcto para emitir
     const calculo = this.esMetroCubicoCorrecto(event);
 
     if (!calculo) {
@@ -47,6 +49,8 @@ export default class AutoServicioPageComponent {
       ...event
     }
 
+
+    //Muestro el comprobante y pusheo a la tabla
     this.comprobante.set(newComp);
     this.comprobantes.update(prev => [...prev, this.comprobante()!])
     this.visible = true;

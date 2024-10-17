@@ -57,7 +57,8 @@ export class AutoServicioFormComponent {
     return this.myForm.get(field)?.errors && this.myForm.get(field)?.touched;
   }
 
-  public onSubmit() {
+  //Termino de construir el resultado del formulario
+  public onSubmit(): void {
     this.myForm.get('metros')?.setValue(this.resultadoMetros());
     this.myForm.get('pesos')?.setValue(this.resultadoPesos());
     const value = this.myForm.getRawValue();
@@ -65,8 +66,8 @@ export class AutoServicioFormComponent {
     this.myForm.reset();
   }
 
-
-  public preventLeadingZero(event: Event) {
+  //Con esta funcion evito que el primer caracter sea 0
+  public preventLeadingZero(event: Event): void {
     const input = event.target as HTMLInputElement;
     if (input.value.startsWith('0')) {
       input.value = input.value.replace(/^0+/, '');

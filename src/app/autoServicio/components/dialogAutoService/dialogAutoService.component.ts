@@ -21,6 +21,8 @@ export class DialogAutoServiceComponent {
   public isValid = input.required<boolean>();
   public visibleEvent = output<boolean>();
 
+
+  //emite un falso para que se pueda volver a generar un dialog, si el usuario quiere volver a ingresar otro producto
   closeDialog(): boolean {
     this.visible = false
     this.visibleEvent.emit(this.visible);
