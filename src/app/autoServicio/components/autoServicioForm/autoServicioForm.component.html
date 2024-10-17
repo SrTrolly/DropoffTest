@@ -1,0 +1,73 @@
+<div class="p-grid p-fluid">
+    <!-- Grilla Izquierda -->
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()" autocomplete="off">
+        <div class="p-col-12 p-md-6">
+            <div class="p-field">
+                <label>Nombre Producto</label>
+                <input formControlName="nombre" type="text" (input)="preventLeadingZero($event)" pInputText
+                    placeholder="Debe ingresar el nombre del producto" />
+
+                @if (isValidField('nombre')){
+                <small class="p-error">El nombre es requerido.</small>
+                }
+                @if (myForm.get('nombre')?.hasError('maxlength')){
+                <small class="p-error">El limite del nombre son 15 caracteres.</small>
+                }
+
+            </div>
+            <div class="p-field">
+                <label>Altura</label>
+                <input formControlName="altura" type="text" (input)="preventLeadingZero($event)" pInputText
+                    placeholder="Debe ingresar la altura" />
+
+                @if (isValidField('altura')){
+                <small class="p-error">Altura es requerido.</small>
+                }
+
+
+            </div>
+
+            <div class="p-field">
+                <label>Ancho</label>
+                <input formControlName="ancho" type="number" (input)="preventLeadingZero($event)" pInputText
+                    placeholder="Debe ingresar el ancho" />
+
+                @if (isValidField('ancho')){
+                <small class="p-error">Ancho es requerido.</small>
+                }
+
+
+            </div>
+
+            <div class="p-field">
+                <label>Longitud</label>
+                <input formControlName="longitud" type="number" (input)="preventLeadingZero($event)" pInputText
+                    placeholder="Debe ingresar el alto" />
+
+                @if (isValidField('longitud')){
+                <small class="p-error">Longitud es requerido.</small>
+                }
+
+
+            </div>
+
+        </div>
+
+        <!-- Grilla Derecha -->
+        <div class="p-col-12 p-md-6">
+            <div class="p-field">
+                <label>Resultado metros cubicos</label>
+                <input type="number" pInputText [value]="resultadoMetros()" readonly />
+            </div>
+            <div class="p-field">
+                <label>Resultado en Pesos</label>
+                <input type="text" [value]="resultadoPesos() | currency:'CLP'" pInputText readonly />
+            </div>
+        </div>
+        <p-button label="Enviar" icon="pi pi-check" type="submit" class="p-mt-2" [disabled]="!myForm.valid"></p-button>
+    </form>
+</div>
+
+<div>
+
+</div>

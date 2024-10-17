@@ -1,0 +1,14 @@
+<auto-servicio-form (valueForm)="onShowDialog($event)"></auto-servicio-form>
+
+@if(visible) {
+<dialog-auto-service [comprobante]="comprobante()!" [visible]="visible" [isValid]="isValid()"
+    (visibleEvent)=" visible = $event"></dialog-auto-service>
+}
+
+
+@if(comprobantes().length > 0) {
+<table-auto-servicio [comprobantes]="comprobantes()"></table-auto-servicio>
+
+} @else {
+<p>No hay comprobantes</p>
+}

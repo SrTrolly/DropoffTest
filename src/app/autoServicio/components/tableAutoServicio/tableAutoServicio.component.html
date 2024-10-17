@@ -1,0 +1,28 @@
+<p-table [value]="comprobantes()" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>N# Orden</th>
+            <th>Nombre Producto</th>
+            <th>Altura</th>
+            <th>Ancho</th>
+            <th>Longitud</th>
+            <th>Metros cubicos</th>
+            <th>Pesos</th>
+            <th>Fecha</th>
+            <th>Hora</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-comp>
+        <tr>
+            <td>{{ comp.orden }}</td>
+            <td>{{ comp.nombre }}</td>
+            <td>{{ comp.altura }}.cm</td>
+            <td>{{ comp.ancho }}.cm</td>
+            <td>{{ comp.longitud }}.cm</td>
+            <td>{{ comp.metros | number}} m³</td>
+            <td>{{ comp.pesos |currency:'CLP' }}</td>
+            <td>{{ comp.fecha }}</td>
+            <td>{{ comp.hora }}</td>
+        </tr>
+    </ng-template>
+</p-table>

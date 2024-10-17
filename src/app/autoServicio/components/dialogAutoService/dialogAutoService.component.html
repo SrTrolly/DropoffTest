@@ -1,0 +1,25 @@
+<p-dialog header="Informacion" (visibleChange)="closeDialog()" [visible]="visible" [closable]="true" [modal]="true"
+    [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }" [style]="{ width: '50vw' }" [draggable]="false"
+    [resizable]="false">
+    <p-card>
+        @let comp = comprobante();
+
+        @if (isValid()) {
+        <div class="p-card-title">Comprobante # {{comp.orden}} con fecha {{comp.fecha}} y hora {{comp.hora}} </div>
+        <div class="p-card-content">
+            <p><strong>Nombre:</strong> {{comp.nombre}} </p>
+            <p><strong>Altura:</strong> {{comp.altura}}.cm </p>
+            <p><strong>Ancho:</strong> {{comp.ancho}}.cm </p>
+            <p><strong>Longitud:</strong> {{comp.longitud}}.cm </p>
+            <p><strong>Metros cúbicos:</strong> {{comp.metros }}m³</p>
+            <p><strong>Pesos:</strong> {{comp.pesos}} </p>
+        </div>
+        } @else {
+        <div class="p-card-title">Orden fallida</div>
+        <p><strong> El producto supero el peso maximo de 2m³; </strong></p>
+        <p>Para una mejor atencion por favor comunicarse con soporte&#64;test.com</p>
+        }
+
+
+    </p-card>
+</p-dialog>
