@@ -18,7 +18,7 @@ import { TableAutoServicioComponent } from '../../components/tableAutoServicio/t
     TableAutoServicioComponent,
     ...primeNgModule
   ],
-  templateUrl: './autoServicioPaGE.component.html',
+  templateUrl: './autoServicioPage.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class AutoServicioPageComponent {
